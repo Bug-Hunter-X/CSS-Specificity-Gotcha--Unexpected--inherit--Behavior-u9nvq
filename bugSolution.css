@@ -1,0 +1,23 @@
+To correct the unexpected inheritance, avoid relying on inheritance in situations with conflicting specificity.
+
+Instead, explicitly set the desired color:
+
+```css
+div {
+  color: blue;
+}
+
+.container div {
+  color: red;
+}
+
+.container p {
+  color: green;
+}
+
+.container p.special {
+  color: blue; /* Explicitly set the color */
+}
+```
+
+This way, the specificity is clear, and the `color` property is directly assigned to the `p.special` element, resolving the inheritance issue and ensuring consistent styling.
