@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an uncommon error related to specificity and inheritance:
+
+```css
+div {
+  color: blue;
+}
+
+.container div {
+  color: red;
+}
+
+.container p {
+  color: green;
+}
+
+.container p.special {
+  color: inherit;
+}
+```
+
+The unexpected behavior arises from the interaction between `inherit`, specificity, and the context of `.container p.special`.  While one might expect `color: inherit;` to inherit the `color` property from the parent `.container`, this does not work as expected. Instead, it inherits from the most specific selector targeting the `p` element within the `.container`, which is `.container p` (with `color: green;`)
